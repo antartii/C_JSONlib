@@ -10,13 +10,14 @@
 char *get_file_content(char *file_path)
 {
     struct stat file_stat;
-    int file = open(file_path, O_RDONLY);
+    int file = 0;
     char *file_content = NULL;
-    ssize_t bytesread;
+    ssize_t bytesread = 0;
 
-    if (file_path == NULL || file == -1)
+    if (file_path == NULL)
         return NULL;
-    if (stat(file_path, &file_stat) == -1)
+    file = open(file_path, O_RDONLY);
+    if (file == -1 || stat(file_path, &file_stat) == -1)
         return NULL;
     file_content = malloc(sizeof(char) * (file_stat.st_size + 1));
     bytesread = read(file, file_content, file_stat.st_size);
