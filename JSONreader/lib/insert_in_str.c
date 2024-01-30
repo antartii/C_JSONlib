@@ -16,6 +16,8 @@ int insert_in_str(char **src, char *insert, int start_index)
         return -1;
     insert_len = my_strlen(insert);
     src_len = my_strlen((*src));
+    if (start_index > src_len)
+        return -1;
     my_realloc_str(src, src_len + insert_len + 1);
     for (int i = src_len; i >= start_index; i -= 1)
         (*src)[i + insert_len] = (*src)[i];
