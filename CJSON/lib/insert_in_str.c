@@ -5,7 +5,7 @@
 ** insert_in_str
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 int insert_in_str(char **src, char *insert, int start_index)
 {

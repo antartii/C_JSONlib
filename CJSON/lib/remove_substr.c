@@ -5,7 +5,7 @@
 ** Remove a part of an str.
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 static int errors_remove_substr(char **adress, int start_index, int end_index)
 {

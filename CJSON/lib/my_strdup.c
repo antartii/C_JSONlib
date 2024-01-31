@@ -5,7 +5,7 @@
 ** my_strdup
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 char *my_strdup(const char *src)
 {

@@ -5,7 +5,7 @@
 ** char *get_file_content()
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 char *get_file_content(char *file_path)
 {

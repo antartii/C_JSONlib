@@ -5,7 +5,7 @@
 ** my_strcmp
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 int my_strcmp(const char *str, const char *str2)
 {

@@ -5,7 +5,7 @@
 ** JSON_get_from_key
 */
 
-#include "../../../includes/JSON_lib.h"
+#include "../../../includes/CJSON.h"
 
 char *JSON_get_from_key(char *JSON, char *key)
 {

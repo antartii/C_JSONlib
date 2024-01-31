@@ -5,7 +5,7 @@
 ** my_realloc_str
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 int my_realloc_str(char **str, int reallocated_memory)
 {

@@ -17,7 +17,11 @@ SRC =	lib/get_file_content.c	\
 	lib/insert_in_str.c	\
 	lib/my_realloc_str.c	\
 	lib/my_strcmp.c	\
-	lib/remove_substr.c
+	lib/my_strdup.c	\
+	lib/remove_substr.c	\
+	src/JSON/GET/JSON_get_from_key.c	\
+	src/JSON/GET/JSON_get_from_keys.c	\
+	src/JSON/UPDATE/JSON_update_from_key.c	\
 
 OBJ = $(SRC:.c = .o)
 
@@ -43,6 +47,7 @@ libclean :
 
 debug : $(OBJ)
 	$(CC) -g $(LIB) $(CFLAGS) -o $(NAME) $(SRC)
+
 
 unit_tests : $(OBJ)
 	gcc -lcriterion -coverage -o unit_test $(TEST)

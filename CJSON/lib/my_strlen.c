@@ -5,7 +5,7 @@
 ** my_strlen
 */
 
-#include "../includes/JSON_lib.h"
+#include "../includes/CJSON.h"
 
 int my_strlen(const char *str)
 {
