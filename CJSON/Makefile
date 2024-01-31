@@ -21,11 +21,10 @@ SRC =	lib/get_file_content.c	\
 	lib/remove_substr.c	\
 	src/JSON/GET/JSON_get_from_key.c	\
 	src/JSON/GET/JSON_get_from_keys.c	\
-	src/JSON/UPDATE/JSON_update_from_key.c	\
 
 OBJ = $(SRC:.c = .o)
 
-NAME = libJSON.a
+NAME = CJSON.a
 
 all : $(NAME)
 
