@@ -40,3 +40,13 @@ char *JSON_get_from_keys(char *JSON, int count, [KEYS...]);
     Returns:
         A dynamically allocated string containing the value associated with the specified keys, or NULL if the keys are not found.
 ```
+
+**get_file_content**
+```c
+char *get_file_content(char *file_path);
+    Description : returns an allocated char * of the content of a file.
+    Parameters :
+        file_path : path of the file the content will retrieve
+    Returns :
+        A dinamically allocated string containing the value associated with the specified keys, or NULL if it encounters an error.
+```
