@@ -31,26 +31,26 @@ char *JSON_clean(char *JSON_string)
             else
                 reading_str = 0;
         }
-        if (JSON_string[i] != '\n' && JSON_string[i] != ' ' && JSON_string[i] != '\t') {
+        if (JSON_string[i] != '\n' && JSON_string[i] != ' ' && JSON_string[i] != '\t' && reading_str == 0) {
             len_result += 1;
             line_index += 1;
-            if (reading_str == 0) {
-                if (JSON_string[i] == '{' || JSON_string[i] == '[') {
-                    layer += 1;
-                    line_index = 0;
-                    len_result += 1;
-                } else if (JSON_string[i] == '}' || JSON_string[i] == ']') {
-                    layer -= 1;
-                    line_index = 0;
-                    len_result += 1;
-                    len_result += 1;
-                } else if (JSON_string[i] == ',') {
-                    line_index = 0;
-                    len_result += 1;
-                }
-            }
-        }
+            if (JSON_string[i] == '{' || JSON_string[i] == '[') {
+                layer += 1;
+                line_index = 0;
+                len_result += 1;
+            } else if (JSON_string[i] == '}' || JSON_string[i] == ']') {
+                layer -= 1;
+                line_index = 0;
+                len_result += 1;
+                len_result += 1;
+            } else if (JSON_string[i] == ',') {
+                line_index = 0;
+                len_result += 1;
+            }       
+        } else if (reading_str == 1)
+            len_result += 1;
     }
+    len_result += 1;
     //code 
 
     layer = 1;
@@ -72,7 +72,7 @@ char *JSON_clean(char *JSON_string)
             else
                 reading_str = 0;
         }
-        if (JSON_string[i] != '\n' && JSON_string[i] != ' ' && JSON_string[i] != '\t') {
+        if (JSON_string[i] != '\n' && JSON_string[i] != ' ' && JSON_string[i] != '\t' && reading_str == 0) {
             result[result_index ++] = JSON_string[i];
             line_index += 1;
             if (reading_str == 0) {
@@ -92,7 +92,9 @@ char *JSON_clean(char *JSON_string)
                     result[result_index++] = '\n';
                 }
             }
-        }
+        } else if (reading_str == 1)
+            result[result_index++] = JSON_string[i];
     }
+    result[result_index ++] = '\0';
     return result;
 }
