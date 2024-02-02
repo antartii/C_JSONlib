@@ -14,6 +14,13 @@
     #include <stdarg.h>
     #include <stdlib.h>
 
+//
+typedef struct data_s
+{
+    char **keys;
+    void **values;
+} data_t;
+
 // base lib
 int my_strlen(const char *str);
 int my_strcmp(const char *str, const char *str2);
@@ -30,6 +37,7 @@ char *JSON_get_from_keys(char *JSON, int count, ...);
 int JSON_clean(char **JSON_string);
 char *JSON_ARRAY_get_from_index(char const *JSON_string, int index);
 int JSON_count_sublayers(char const *JSON_string);
+char **JSON_get_all_subkeys(char const *JSON_string);
 //
 
 #endif /* !JSON_LIB */
