@@ -27,7 +27,7 @@ char *my_strdup(const char *src);
 // JSON lib
 char *JSON_get_from_key(char *JSON, char *key);
 char *JSON_get_from_keys(char *JSON, int count, ...);
-char *JSON_clean(char *JSON_string);
+int JSON_clean(char **JSON_string);
 char *JSON_ARRAY_get_from_index(char const *JSON_string, int index);
 //
 
