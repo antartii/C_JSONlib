@@ -17,8 +17,11 @@
 //
 typedef struct data_s
 {
-    char **keys;
-    void **values;
+    int index;
+    char *key;
+    char *value;
+    struct data_s *prev;
+    struct data_s *next;
 } data_t;
 
 // base lib
