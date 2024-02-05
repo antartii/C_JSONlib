@@ -29,14 +29,20 @@ int JSON_add_value(data_t **JSON_DATA, char *key, char *value)
         (*JSON_DATA)->prev = NULL;
         (*JSON_DATA)->next = NULL;
     } else {
-        while ((*JSON_DATA)->next != NULL)
+        while ((*JSON_DATA)->next != NULL && my_strcmp((*JSON_DATA)->key, key) != 0)
             (*JSON_DATA) = (*JSON_DATA)->next;
-        (*JSON_DATA)->next = JSON_init_data();
-        (*JSON_DATA)->next->prev = (*JSON_DATA);
-        (*JSON_DATA)->next->key = my_strdup(key);
-        (*JSON_DATA)->next->value = my_strdup(value);
-        (*JSON_DATA)->next->index = (*JSON_DATA)->index + 1;
-        (*JSON_DATA) = (*JSON_DATA)->next;
+        if (my_strcmp((*JSON_DATA)->key, key) == 0) {
+            free((*JSON_DATA)->value);
+            (*JSON_DATA)->value = NULL;
+            (*JSON_DATA)->value = my_strdup(value);
+        } else {
+            (*JSON_DATA)->next = JSON_init_data();
+            (*JSON_DATA)->next->prev = (*JSON_DATA);
+            (*JSON_DATA)->next->key = my_strdup(key);
+            (*JSON_DATA)->next->value = my_strdup(value);
+            (*JSON_DATA)->next->index = (*JSON_DATA)->index + 1;
+            (*JSON_DATA) = (*JSON_DATA)->next;
+        }
     }
     return 0;
 }
