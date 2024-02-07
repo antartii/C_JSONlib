@@ -50,3 +50,40 @@ char *get_file_content(char *file_path);
     Returns :
         A dinamically allocated string containing the value associated with the specified keys, or NULL if it encounters an error.
 ```
+**JSON_count_sublayers**
+``` c
+int JSON_count_sublayers(char const *JSON_string);
+    Description : returns the count of sublayers inside a a JSON_string value
+    Parameters :
+        JSON_string : The JSON_string value to count sublayers
+    Returns :
+        An int of the counts of sublayers inside of the JSON data given
+```
+**JSON_get_all_subkeys**
+``` c
+char **JSON_get_all_subkeys(char const *JSON_string);
+    Description : returns an array of all the keys of a JSON data
+    Parameters :
+        JSON_string : The JSON_string value to count sublayers
+    Returns :
+        A dinamically allocated array of strings, of all the direct subkeys of a JSON data
+```
+**JSON_ARRAY_get_from_index**
+``` c
+char *JSON_ARRAY_get_from_index(char const *JSON_string, int index);
+    Description : returns the value of an array based on it's index inside of a JSON_value
+    Parameters :
+        JSON_string : The JSON_string where the value will be found
+        index : The index to find the value
+    Returns :
+        A dinamically allocated string of the value found based on the index
+```
+**JSON_clean.c**
+``` c
+int JSON_clean(char **JSON_string);
+    Description : clean a JSON value in case it was badly parsed or it contains some parasites characters
+    Parameters :
+        JSON_string : The address of the string we will clean
+    Returns :
+        0 if it encounters no error
+```
